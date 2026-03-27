@@ -25,4 +25,7 @@ else:
 if st.button("Predict"):
     input_=np.array([[age,val,heart,Resp,Temp,oxy,Syst,Dias,HRV,BMI,MAP]])
     Pred=model.predict(input_)
-    st.success(Pred[0])
+    if Pred[0]==0:
+        st.success("Patient has High Risk")
+    else:
+        st.success("Patient has Low Risk")
